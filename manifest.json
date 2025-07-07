@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json.schemastore.org/web-manifest-combined.json",
+  "name": "Noureldin",
+  "short_name": "Noureldin",
+  "start_url": "/",
+  "display": "standalone",
+  "icons": [
+    {
+      "src": "public/logo.png",
+      "type": "image/png",
+      "sizes": "any"
+    }
+  ]
+}

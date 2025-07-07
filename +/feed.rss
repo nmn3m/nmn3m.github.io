@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+    <channel>
+        <title>Noureldin</title>
+        <link>https://nmn3m.github.io/+/feed.rss</link>
+        <language>en-US</language>
+        <description>A DevOps Engineer</description>
+        <item>
+            <title>Home</title>
+            <description>&lt;h2 id=&#34;trying&#34; dir=&#34;auto&#34;&gt;Trying &lt;a class=&#34;show-on-parent-hover is-hidden has-text-grey&#34; href=&#34;#trying&#34;&gt;¶&lt;/a&gt;&lt;/h2&gt;&#xA;&lt;ol dir=&#34;auto&#34;&gt;&#xA;&lt;li&gt;making website&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;</description>
+            <pubDate>2025-07-08T22:01:33.081982604+03:00</pubDate>
+            <guid>Home</guid>
+            <link>https://nmn3m.github.io/Home</link>
+        </item>
+        <item>
+            <title>index</title>
+            <description>&lt;h2 id=&#34;tour&#34; dir=&#34;auto&#34;&gt;Tour &lt;a class=&#34;show-on-parent-hover is-hidden has-text-grey&#34; href=&#34;#tour&#34;&gt;¶&lt;/a&gt;&lt;/h2&gt;&#xA;&lt;ul dir=&#34;auto&#34;&gt;&#xA;&lt;li&gt;Hello&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;</description>
+            <pubDate>2025-07-08T00:43:12.735410459+03:00</pubDate>
+            <guid>index</guid>
+            <link>https://nmn3m.github.io/index</link>
+        </item>
+    </channel>
+</rss>
