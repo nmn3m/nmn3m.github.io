@@ -1,0 +1,17 @@
+<footer class="site-footer">
+  <div>
+    <p>&copy; {{ now.Year }} {{ .Site.Title }}. {{ i18n "all_rights_reserved" }}</p>
+  </div>
+  <div class="footer-links">
+    {{ with .Site.Params.social.github }}
+    <a href="https://github.com/{{ . }}" target="_blank" rel="noopener">GitHub</a>
+    {{ end }}
+    {{ with .Site.Params.social.twitter }}
+    <a href="https://twitter.com/{{ . }}" target="_blank" rel="noopener">Twitter</a>
+    {{ end }}
+    {{ with .Site.Params.social.linkedin }}
+    <a href="https://linkedin.com/in/{{ . }}" target="_blank" rel="noopener">LinkedIn</a>
+    {{ end }}
+    <a href="{{ "index.xml" | relLangURL }}">RSS</a>
+  </div>
+</footer>

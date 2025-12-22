@@ -1,0 +1,33 @@
+{{ define "main" }}
+<div class="post-list-wrap">
+  <div class="page-header">
+    <h1>{{ .Title }}</h1>
+    {{if .Content }}
+    <p class="muted">{{ .Content }}</p>
+    {{ end }}
+  </div>
+
+  <ul class="post-list">
+    {{ range .Paginator.Pages }}
+    <li class="post-line">
+      <div class="post-line__one">
+        <a href="{{ .Permalink }}" class="post-line__title">
+          {{ .Title }}
+        </a>
+        <span class="post-line__meta">
+          <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 2, 2006" }}</time>
+          {{ if .Params.tags }}
+            · {{ range first 2 .Params.tags }}<span class="chip">{{ . }}</span> {{ end }}
+          {{ end }}
+        </span>
+      </div>
+      {{ if .Summary }}
+      <p class="post-line__desc">{{ .Summary | plainify | truncate 150 }}</p>
+      {{ end }}
+    </li>
+    {{ end }}
+  </ul>
+
+  {{ template "_internal/pagination.html" . }}
+</div>
+{{ end }}

@@ -1,0 +1,32 @@
+[home]
+other = "Home"
+
+[blog]
+other = "Blog"
+
+[about]
+other = "About"
+
+[all_rights_reserved]
+other = "All rights reserved"
+
+[read_more]
+other = "Read more"
+
+[recent_posts]
+other = "Recent Posts"
+
+[view_all_posts]
+other = "View all posts"
+
+[by]
+other = "by"
+
+[min_read]
+other = "min read"
+
+[next_post]
+other = "Next Post"
+
+[previous_post]
+other = "Previous Post"

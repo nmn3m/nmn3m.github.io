@@ -1,0 +1,32 @@
+[home]
+other = "الرئيسية"
+
+[blog]
+other = "المدونة"
+
+[about]
+other = "عني"
+
+[all_rights_reserved]
+other = "جميع الحقوق محفوظة"
+
+[read_more]
+other = "اقرأ المزيد"
+
+[recent_posts]
+other = "أحدث المقالات"
+
+[view_all_posts]
+other = "عرض جميع المقالات"
+
+[by]
+other = "بواسطة"
+
+[min_read]
+other = "دقيقة قراءة"
+
+[next_post]
+other = "المقال التالي"
+
+[previous_post]
+other = "المقال السابق"

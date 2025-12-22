@@ -1,0 +1,229 @@
+{{ $styles := resources.Get "css/main.css" | resources.Minify | resources.Fingerprint }}
+{{ $desc := "" }}
+{{ if .Description }}
+  {{ $desc = .Description | plainify }}
+{{ else if .IsPage }}
+  {{ $desc = .Summary | plainify }}
+{{ else }}
+  {{ $desc = .Site.Params.description }}
+{{ end }}
+<!DOCTYPE html>
+<html lang="{{ .Site.Language.Lang }}" dir="{{ if eq .Site.Language.Lang "ar" }}rtl{{ else }}ltr{{ end }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ block "title" . }}{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}{{ end }}</title>
+  <meta name="description" content="{{ $desc }}">
+  <meta property="og:description" content="{{ $desc }}">
+  <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
+  <meta property="og:site_name" content="{{ .Site.Title }}">
+  {{ with .Permalink }}<meta property="og:url" content="{{ . }}">{{ end }}
+  {{ with .Title }}<meta property="og:title" content="{{ . }}">{{ end }}
+  <link rel="alternate" type="application/rss+xml" href="{{ "index.xml" | relLangURL }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&family=Noto+Sans+JP:wght@400;500;700&family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hack-font/3.3.0/web/hack.min.css" crossorigin="anonymous">
+  <link rel="stylesheet" href="{{ $styles.RelPermalink }}" integrity="{{ $styles.Data.Integrity }}">
+  <script>
+    (() => {
+      const media = window.matchMedia('(prefers-color-scheme: dark)');
+      const syncToggleButton = (mode) => {
+        const choices = document.querySelectorAll('.theme-choice');
+        choices.forEach((c) => c.setAttribute('aria-checked', c.dataset.mode === mode ? 'true' : 'false'));
+        const icon = document.querySelector('[data-theme-icon]');
+        if (icon) {
+          const effectiveState = mode === 'system' ? document.documentElement.dataset.theme || 'light' : mode;
+          icon.dataset.state = effectiveState;
+        }
+      };
+      const resolve = (mode) => mode === 'system' ? (media.matches ? 'dark' : 'light') : mode;
+      const apply = (mode) => {
+        const effective = resolve(mode);
+        document.documentElement.dataset.theme = effective;
+        if (document.body) {
+          document.body.dataset.theme = effective;
+          document.body.classList.toggle('theme-dark', effective === 'dark');
+          document.body.classList.toggle('theme-light', effective === 'light');
+        }
+        syncToggleButton(mode);
+      };
+      const load = () => {
+        const stored = localStorage.getItem('color-scheme');
+        const initial = stored || 'system';
+        apply(initial);
+      };
+      media.addEventListener('change', (e) => {
+        const stored = localStorage.getItem('color-scheme');
+        if (!stored || stored === 'system') apply('system');
+      });
+      window.__setTheme = (mode) => {
+        const next = mode || (document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark');
+        localStorage.setItem('color-scheme', next);
+        apply(next);
+      };
+      window.__toggleTheme = () => window.__setTheme();
+      window.__toggleThemeMenu = (btn) => {
+        const pop = btn?.nextElementSibling;
+        if (!pop) return;
+        const isOpen = !pop.hidden;
+        document.querySelectorAll('.theme-popover').forEach(el => el.hidden = true);
+        document.querySelectorAll('.theme-trigger').forEach(el => el.setAttribute('aria-expanded','false'));
+        if (!isOpen) {
+          pop.hidden = false;
+          btn.setAttribute('aria-expanded','true');
+        }
+      };
+      document.addEventListener('click', (e) => {
+        const pop = document.querySelector('.theme-popover');
+        if (!pop) return;
+        if (e.target.closest('.theme-menu')) return;
+        pop.hidden = true;
+        const trig = document.querySelector('.theme-trigger');
+        trig?.setAttribute('aria-expanded','false');
+      });
+
+      window.__toggleLangMenu = (btn) => {
+        const pop = btn?.nextElementSibling;
+        if (!pop) return;
+        const isOpen = !pop.hidden;
+        document.querySelectorAll('.lang-popover').forEach(el => el.hidden = true);
+        document.querySelectorAll('.lang-trigger').forEach(el => el.setAttribute('aria-expanded','false'));
+        if (!isOpen) {
+          pop.hidden = false;
+          btn.setAttribute('aria-expanded','true');
+        }
+      };
+      window.__switchLang = (url, label) => {
+        if (!url) return;
+        window.location.href = url;
+      };
+      document.addEventListener('click', (e) => {
+        const pop = document.querySelector('.lang-popover');
+        if (!pop) return;
+        if (e.target.closest('.lang-menu')) return;
+        pop.hidden = true;
+        const trig = document.querySelector('.lang-trigger');
+        trig?.setAttribute('aria-expanded','false');
+      });
+      load();
+      document.addEventListener('DOMContentLoaded', () => {
+        const initial = document.documentElement.dataset.theme || (media.matches ? 'dark' : 'light');
+        syncToggleButton(initial);
+      });
+    })();
+  </script>
+  {{ hugo.Generator }}
+</head>
+{{ $toc := .TableOfContents }}
+{{ $hasToc := gt (len ($toc | plainify)) 0 }}
+<body class="{{ if .IsHome }}home{{ else if eq .Kind "404" }}error404{{ else }}page{{ end }}" data-has-toc="{{ if $hasToc }}true{{ else }}false{{ end }}">
+  <div class="page-shell">
+    {{ partial "header.html" . }}
+    <main class="layout">
+      {{ block "main" . }}{{ end }}
+    </main>
+    {{ partial "footer.html" . }}
+  </div>
+
+  <script>
+    (() => {
+      const detect = () => {
+        const mq = window.matchMedia('(max-width: 1024px)').matches;
+        const ua = /Mobi|Android/i.test(navigator.userAgent);
+        const isMobile = mq || ua;
+        document.body.dataset.isMobile = isMobile ? 'true' : 'false';
+      };
+      detect();
+      window.addEventListener('resize', detect, { passive: true });
+    })();
+
+    (() => {
+      const btn = document.querySelector('[data-menu-toggle]');
+      const menu = document.getElementById('mobile-menu');
+      const overlay = document.querySelector('[data-menu-overlay]');
+      if (!btn || !menu) return;
+      const isMobile = () => document.body.dataset.isMobile === 'true';
+      const setState = (open) => {
+        btn.classList.toggle('is-open', open);
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+        menu.hidden = !open;
+        menu.classList.toggle('is-open', open);
+        if (overlay) {
+          overlay.hidden = !open;
+          overlay.classList.toggle('is-open', open);
+        }
+        document.body.classList.toggle('menu-open', open);
+      };
+      const toggle = () => setState(!(btn.getAttribute('aria-expanded') === 'true'));
+      const close = () => setState(false);
+      btn.addEventListener('click', (e) => { e.stopPropagation(); toggle(); });
+      document.querySelectorAll('[data-menu-close]').forEach((c) => c.addEventListener('click', close));
+      document.addEventListener('click', (e) => {
+        if (!menu.contains(e.target) && !btn.contains(e.target)) close();
+      });
+      if (overlay) overlay.addEventListener('click', close);
+      document.addEventListener('keydown', (e) => { if (e.key === 'Escape') close(); });
+      window.addEventListener('resize', () => { if (!isMobile()) close(); }, { passive: true });
+    })();
+
+    (() => {
+      const codeBlocks = document.querySelectorAll('.article-body pre');
+      codeBlocks.forEach((pre) => {
+        const wrapper = document.createElement('div');
+        wrapper.className = 'code-block-wrapper';
+        pre.parentNode.insertBefore(wrapper, pre);
+        wrapper.appendChild(pre);
+
+        const btn = document.createElement('button');
+        btn.className = 'code-copy-btn';
+        btn.setAttribute('aria-label', 'Copy code');
+        btn.innerHTML = `
+          <svg class="code-copy-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+          </svg>
+          <svg class="code-check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+        `;
+        wrapper.appendChild(btn);
+
+        btn.addEventListener('click', async () => {
+          const code = pre.querySelector('code');
+          const text = code ? code.textContent : pre.textContent;
+          try {
+            await navigator.clipboard.writeText(text);
+            btn.classList.add('is-copied');
+            setTimeout(() => btn.classList.remove('is-copied'), 2000);
+          } catch (err) {
+            console.error('Failed to copy:', err);
+          }
+        });
+      });
+    })();
+
+    (() => {
+      const imgs = Array.from(document.querySelectorAll('.article-body img'));
+      if (!imgs.length) return;
+      const overlay = document.createElement('div');
+      overlay.className = 'lightbox-backdrop';
+      overlay.innerHTML = '<img alt=\"\">';
+      document.body.appendChild(overlay);
+      const view = overlay.querySelector('img');
+      const close = () => overlay.classList.remove('is-open');
+      overlay.addEventListener('click', close);
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') close();
+      });
+      imgs.forEach((img) => {
+        img.addEventListener('click', () => {
+          view.src = img.src;
+          view.alt = img.alt || '';
+          overlay.classList.add('is-open');
+        });
+      });
+    })();
+  </script>
+</body>
+</html>

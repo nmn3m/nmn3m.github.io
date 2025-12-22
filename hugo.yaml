@@ -1,0 +1,86 @@
+baseURL: "https://nmn3m.github.io/"
+title: "nmn3m's Blog"
+theme: "custom"
+languageCode: "en"
+defaultContentLanguage: "en"
+
+# Pagination
+pagination:
+  pagerSize: 10
+  path: "page"
+
+# Output formats
+outputs:
+  home: ["HTML", "RSS"]
+  page: ["HTML"]
+  section: ["HTML", "RSS"]
+
+# Enable GitInfo
+enableGitInfo: false
+
+# Multilingual configuration
+languages:
+  en:
+    languageName: "English"
+    weight: 1
+    params:
+      description: "A blog about technology, programming, and more"
+      hero:
+        title: "Welcome to My Blog"
+        subtitle: "Thoughts on technology, programming, and life"
+  ar:
+    languageName: "العربية"
+    weight: 2
+    title: "مدونة nmn3m"
+    params:
+      description: "مهندس موثوقية الأنظمة | مساهم في Kubernetes | قابلية المراقبة والبنية التحتية السحابية"
+      hero:
+        title: "نور الدين عبد المنعم"
+        subtitle: "مهندس موثوقية الأنظمة متخصص في Kubernetes وقابلية المراقبة والبنية التحتية السحابية"
+
+# Site parameters
+params:
+  description: "Site Reliability Engineer | Kubernetes Contributor | Observability & Cloud Infrastructure"
+  author: "Noureldin Abdelmonem"
+
+  # Hero section
+  hero:
+    title: "Noureldin Abdelmonem"
+    subtitle: "Site Reliability Engineer focused on Kubernetes, observability, and cloud infrastructure"
+
+  # Social media links
+  social:
+    github: "nmn3m"
+    # twitter: "yourusername"
+    linkedin: "nmn3m"
+
+# Markup configuration
+markup:
+  highlight:
+    style: "monokai"
+    lineNos: true
+    lineNumbersInTable: false
+  goldmark:
+    renderer:
+      unsafe: true
+
+# Taxonomies
+taxonomies:
+  tag: "tags"
+  category: "categories"
+
+# Menu configuration
+menu:
+  main:
+    - identifier: "home"
+      name: "Home"
+      url: "/"
+      weight: 1
+    - identifier: "posts"
+      name: "Blog"
+      url: "/posts/"
+      weight: 2
+    - identifier: "about"
+      name: "About"
+      url: "/about/"
+      weight: 3

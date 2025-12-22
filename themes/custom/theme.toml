@@ -1,0 +1,12 @@
+name = "Custom"
+license = "MIT"
+licenselink = "https://github.com/nmn3m/nmn3m.github.io/blob/main/LICENSE"
+description = "A custom Hugo theme with dark mode support"
+homepage = "https://github.com/nmn3m/nmn3m.github.io"
+tags = ["blog", "minimal", "dark-mode", "responsive"]
+features = ["dark-mode", "responsive", "clean"]
+min_version = "0.140.0"
+
+[author]
+  name = "nmn3m"
+  homepage = "https://nmn3m.github.io"
