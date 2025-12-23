@@ -4,6 +4,8 @@ date: 2025-12-22T10:00:00Z
 draft: false
 ---
 
+<img src="/images/nour-selfphoto.jpg" alt="Noureldin Abdelmonem" style="width: 200px; border-radius: 50%; margin: 0 auto 2rem; display: block;">
+
 ## Hi, I'm Noureldin Abdelmonem
 
 I'm a **Site Reliability Engineer** passionate about observability, system internals, and cloud infrastructure. I work across multiple cloud platforms and contribute to the Kubernetes ecosystem, particularly focusing on code quality and control plane observability.

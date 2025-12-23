@@ -1,5 +1,8 @@
 {{ define "main" }}
-<div class="article-layout">
+{{ $toc := .TableOfContents }}
+{{ $hasToc := gt (len ($toc | plainify)) 0 }}
+
+<div class="article-layout {{ if $hasToc }}has-toc{{ end }}">
   <article class="article">
     <div class="article-hero">
       <h1 class="article-title">{{ .Title }}</h1>
@@ -40,5 +43,17 @@
       </nav>
     </footer>
   </article>
+
+  {{ if $hasToc }}
+  <aside class="toc-desktop">
+    <nav class="toc">
+      <div class="toc__title">Table of Contents</div>
+      <div class="toc__body">
+        {{ $toc }}
+      </div>
+    </nav>
+  </aside>
+
+  {{ end }}
 </div>
 {{ end }}

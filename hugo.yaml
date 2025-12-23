@@ -42,6 +42,7 @@ languages:
 params:
   description: "Site Reliability Engineer | Kubernetes Contributor | Observability & Cloud Infrastructure"
   author: "Noureldin Abdelmonem"
+  logo: "/images/nour-selfphoto.jpg"
 
   # Hero section
   hero:
@@ -63,6 +64,10 @@ markup:
   goldmark:
     renderer:
       unsafe: true
+  tableOfContents:
+    startLevel: 2
+    endLevel: 4
+    ordered: false
 
 # Taxonomies
 taxonomies:

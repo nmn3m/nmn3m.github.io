@@ -1,0 +1,43 @@
+/* Fix article layout - make article wider, TOC narrower */
+.article-layout.has-toc {
+  display: grid;
+  grid-template-columns: 1fr 280px;
+  gap: 28px;
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.article-layout.has-toc .article {
+  max-width: none;
+  width: 100%;
+}
+
+.article-layout.has-toc .toc-desktop {
+  width: 280px;
+}
+
+/* Hide mobile TOC button on desktop */
+.mobile-toc-fab {
+  display: none !important;
+}
+
+.toc-modal,
+.toc-modal__overlay {
+  display: none !important;
+}
+
+@media (max-width: 1024px) {
+  .article-layout.has-toc {
+    grid-template-columns: 1fr;
+  }
+
+  /* Show mobile TOC on mobile */
+  .mobile-toc-fab {
+    display: flex !important;
+  }
+
+  .toc-modal,
+  .toc-modal__overlay {
+    display: block !important;
+  }
+}

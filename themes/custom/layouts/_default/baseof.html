@@ -19,12 +19,16 @@
   <meta property="og:site_name" content="{{ .Site.Title }}">
   {{ with .Permalink }}<meta property="og:url" content="{{ . }}">{{ end }}
   {{ with .Title }}<meta property="og:title" content="{{ . }}">{{ end }}
+  <link rel="icon" type="image/x-icon" href="{{ "favicon.ico" | relURL }}">
+  <link rel="icon" type="image/png" sizes="32x32" href="{{ "images/nour-selfphoto.jpg" | relURL }}">
+  <link rel="apple-touch-icon" sizes="180x180" href="{{ "apple-touch-icon.png" | relURL }}">
   <link rel="alternate" type="application/rss+xml" href="{{ "index.xml" | relLangURL }}">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&family=Noto+Sans+JP:wght@400;500;700&family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hack-font/3.3.0/web/hack.min.css" crossorigin="anonymous">
   <link rel="stylesheet" href="{{ $styles.RelPermalink }}" integrity="{{ $styles.Data.Integrity }}">
+  <link rel="stylesheet" href="{{ "css/layout-fix.css" | relURL }}">
   <script>
     (() => {
       const media = window.matchMedia('(prefers-color-scheme: dark)');
@@ -50,7 +54,7 @@
       };
       const load = () => {
         const stored = localStorage.getItem('color-scheme');
-        const initial = stored || 'system';
+        const initial = stored || 'light';
         apply(initial);
       };
       media.addEventListener('change', (e) => {
