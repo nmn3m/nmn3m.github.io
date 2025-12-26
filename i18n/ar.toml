@@ -30,3 +30,6 @@ other = "المقال التالي"
 
 [previous_post]
 other = "المقال السابق"
+
+[table_of_contents]
+other = "المحتويات"

@@ -30,3 +30,6 @@ other = "Next Post"
 
 [previous_post]
 other = "Previous Post"
+
+[table_of_contents]
+other = "Table of Contents"

@@ -1,3 +1,19 @@
+/* Fix scroll position when clicking TOC links */
+html {
+  scroll-padding-top: 20px;
+  scroll-behavior: smooth;
+}
+
+/* Remove markdown-style decorative symbols from headings */
+.article-body h1::before,
+.article-body h2::before,
+.article-body h3::before,
+.article-body h4::before,
+.article-body h5::before {
+  content: "" !important;
+  margin-right: 0 !important;
+}
+
 /* Fix article layout - make article wider, TOC narrower */
 .article-layout.has-toc {
   display: grid;
@@ -14,6 +30,51 @@
 
 .article-layout.has-toc .toc-desktop {
   width: 280px;
+}
+
+/* Push footer to bottom on short pages */
+.layout {
+  flex: 1 !important;
+}
+
+/* Author info under TOC */
+.toc-author {
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+}
+
+.toc-author__name {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 12px;
+}
+
+.toc-author__socials {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.toc-author__socials a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  transition: all 0.2s ease;
+}
+
+.toc-author__socials a:hover {
+  background: var(--accent-2);
+  border-color: var(--accent-2);
+  color: white;
+  transform: translateY(-2px);
 }
 
 /* Hide mobile TOC button on desktop */

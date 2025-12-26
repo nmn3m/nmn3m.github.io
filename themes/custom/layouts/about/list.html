@@ -1,53 +1,18 @@
 {{ define "main" }}
 {{ $toc := .TableOfContents }}
-{{ $hasToc := gt (len ($toc | plainify)) 0 }}
+{{ $hasToc := and (gt (len ($toc | plainify)) 0) (gt (len ($toc | plainify)) 10) }}
 
 <div class="article-layout {{ if $hasToc }}has-toc{{ end }}">
   <article class="article">
-    <div class="article-hero">
-      <h1 class="article-title">{{ .Title }}</h1>
-      <div class="article-meta">
-        <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>
-        {{ if .Params.author }}
-        · <span>{{ i18n "by" }} {{ .Params.author }}</span>
-        {{ end }}
-        {{ if .ReadingTime }}
-        · <span>{{ .ReadingTime }} {{ i18n "min_read" }}</span>
-        {{ end }}
-      </div>
-      {{ if .Params.tags }}
-      <div class="article-tags">
-        {{ range .Params.tags }}
-        <a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}" class="tag">{{ . }}</a>
-        {{ end }}
-      </div>
-      {{ end }}
-    </div>
-
     <div class="article-body">
       {{ .Content }}
     </div>
-
-    <footer class="article-footer">
-      <nav class="article-nav">
-        {{ if .PrevInSection }}
-        <a href="{{ .PrevInSection.Permalink }}" class="btn-ghost">
-          <span class="nav-arrow">←</span> {{ i18n "previous_post" }}
-        </a>
-        {{ end }}
-        {{ if .NextInSection }}
-        <a href="{{ .NextInSection.Permalink }}" class="btn-ghost">
-          {{ i18n "next_post" }} <span class="nav-arrow">→</span>
-        </a>
-        {{ end }}
-      </nav>
-    </footer>
   </article>
 
   {{ if $hasToc }}
   <aside class="toc-desktop">
     <nav class="toc">
-      <div class="toc__title">Table of Contents</div>
+      <div class="toc__title">{{ i18n "table_of_contents" }}</div>
       <div class="toc__body">
         {{ $toc }}
       </div>
@@ -80,7 +45,6 @@
       </div>
     </div>
   </aside>
-
   {{ end }}
 </div>
 {{ end }}

@@ -4,47 +4,40 @@ date: 2025-12-22T10:00:00Z
 draft: false
 ---
 
-<img src="/images/nour-selfphoto.jpg" alt="Noureldin Abdelmonem" style="width: 200px; border-radius: 50%; margin: 0 auto 2rem; display: block;">
+<div style="text-align: center; margin: 2rem 0 3rem;">
+  <img src="/images/nour-selfphoto.jpg" alt="Noureldin Abdelmonem" style="width: 150px; height: 150px; border-radius: 50%; object-fit: cover; margin: 0 auto 1rem; display: block; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
+  <h2 style="margin: 0.5rem 0;">Noureldin Abdelmonem</h2>
+  <p style="color: #666; margin: 0;">Site Reliability Engineer</p>
+</div>
 
-## Hi, I'm Noureldin Abdelmonem
+## About Me
 
-I'm a **Site Reliability Engineer** passionate about observability, system internals, and cloud infrastructure. I work across multiple cloud platforms and contribute to the Kubernetes ecosystem, particularly focusing on code quality and control plane observability.
+I'm a Site Reliability Engineer focused on building reliable, scalable distributed systems. I contribute to the Kubernetes ecosystem and work extensively with observability tools and cloud infrastructure.
 
-## What I Do
+## Work
 
-My work revolves around building reliable, scalable systems and contributing to open-source projects. I'm currently focused on:
+- Present: Site Reliability Engineer
 
-- **Kubernetes & Cloud Native**: Active contributor to Kubernetes and related projects like kube-state-metrics and metrics-server
-- **Observability**: Building and implementing observability tools and practices for distributed systems
-- **Linux Internals**: Deep diving into system internals and performance optimization
-- **Open Source**: Contributing to various open-source projects, particularly in the Kubernetes ecosystem
+## OSS Activities
 
-## Technical Focus
+- [Kubernetes contributor](https://github.com/kubernetes/kubernetes/pulls?q=is%3Apr+author%3Anmn3m+archived%3Afalse+is%3Aclosed) - Contributing to core Kubernetes project
+- [kube-state-metrics contributor](https://github.com/kubernetes/kube-state-metrics/pulls?q=is%3Apr+author%3Anmn3m) - Working on cluster-level metrics
+- Active in CNCF ecosystem projects
+- Focus on Kubernetes control plane observability and metrics
 
-- **Primary Language**: Go
-- **Specializations**: Kubernetes, SRE practices, observability, cloud infrastructure
-- **Interests**: System internals, performance engineering, distributed systems
+## Interests
 
-## Open Source Contributions
+- **Go** programming and system design
+- **Kubernetes** internals and control plane
+- **Observability** tools and practices (Prometheus, Grafana)
+- **Linux** internals and performance tuning
+- **Open source** contributions
 
-I'm an active member of the Kubernetes organization and have earned recognition as a "Pull Shark" for my contributions to the open-source community. You can check out my contributions on [GitHub](https://github.com/nmn3m).
+## Get in touch
 
-## Projects
+Reach me at:
 
-Some of the key projects I work with:
+- [GitHub](https://github.com/nmn3m) - Check out my contributions
+- [LinkedIn](https://linkedin.com/in/nmn3m) - Let's connect professionally
 
-- **Kubernetes**: Contributing to the production-grade container orchestration system
-- **kube-state-metrics**: Generating cluster-level metrics from Kubernetes API
-- **metrics-server**: Container resource metrics for Kubernetes autoscaling
-- **playground**: CLI tool for managing local Kubernetes clusters using K3s and Multipass
-
-## Get in Touch
-
-- **GitHub**: [github.com/nmn3m](https://github.com/nmn3m)
-- **LinkedIn**: [linkedin.com/in/nmn3m](https://linkedin.com/in/nmn3m)
-
-Feel free to reach out if you want to discuss Kubernetes, observability, SRE practices, or collaborate on open-source projects!
-
----
-
-*Building reliable systems, one commit at a time.*
+Feel free to reach out if you want to discuss Kubernetes, SRE practices, or collaborate on open-source projects.
