@@ -54,7 +54,7 @@
       };
       const load = () => {
         const stored = localStorage.getItem('color-scheme');
-        const initial = stored || 'light';
+        const initial = stored || 'dark';
         apply(initial);
       };
       media.addEventListener('change', (e) => {
