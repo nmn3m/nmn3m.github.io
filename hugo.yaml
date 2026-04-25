@@ -42,7 +42,7 @@ languages:
 params:
   description: "Site Reliability Engineer | Kubernetes Contributor | Observability & Cloud Infrastructure"
   author: "Noureldin Abdelmonem"
-  logo: "/images/nour-selfphoto.jpg"
+  logo: "/images/me-me.jpg"
 
   # Hero section
   hero:

@@ -5,7 +5,7 @@ draft: false
 ---
 
 <div style="text-align: center; margin: 2rem 0 3rem;">
-  <img src="/images/nour-selfphoto.jpg" alt="نور الدين عبد المنعم" style="width: 150px; height: 150px; border-radius: 50%; object-fit: cover; margin: 0 auto 1rem; display: block; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
+  <img src="/images/me-me.jpg" alt="نور الدين عبد المنعم" style="width: 150px; height: 150px; border-radius: 50%; object-fit: cover; margin: 0 auto 1rem; display: block; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
   <h2 style="margin: 0.5rem 0;">نور الدين عبد المنعم</h2>
   <p style="color: #666; margin: 0;">مهندس موثوقية الأنظمة</p>
 </div>
